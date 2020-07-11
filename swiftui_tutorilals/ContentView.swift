@@ -10,7 +10,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack(alignment: .leading) {
+            MapView()
+                .edgesIgnoringSafeArea(.top)
+                .frame(height: 300)
+
+            CustomImageView()
+                .offset(y: -130)
+                .padding(.bottom, -130)
+
+            Text("Yusuke Miyata")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.red)
+            HStack {
+                Text("Swift engeneer")
+                    .font(.subheadline)
+                Spacer()
+                Text("from Japan")
+                    .font(.subheadline)
+            }
+            .padding()
+
+        Spacer()
+        }
     }
 }
 
