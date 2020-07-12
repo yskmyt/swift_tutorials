@@ -9,36 +9,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    var landmark: Landmark
     var body: some View {
         VStack(alignment: .leading) {
-            MapView()
+            MapView(coordinate: landmark.locationCoordinate)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 300)
 
-            CustomImageView()
+            CircleImage(image: landmark.image)
                 .offset(y: -130)
                 .padding(.bottom, -130)
 
-            Text("Yusuke Miyata")
+            Text(landmark.name)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.red)
-            HStack {
-                Text("Swift engeneer")
+
+            HStack(alignment: .top) {
+                Text(landmark.park)
                     .font(.subheadline)
                 Spacer()
-                Text("from Japan")
+                Text(landmark.state)
                     .font(.subheadline)
             }
             .padding()
-
-        Spacer()
+            Spacer()
         }
+        .navigationBarTitle(Text(landmark.name), displayMode: .inline)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(landmark: landmarkData[0])
     }
 }
