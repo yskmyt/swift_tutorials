@@ -13,10 +13,9 @@ struct CircleImage: View {
     
     var body: some View {
         image
-            .resizable()
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.green, lineWidth: 4))
-//            .scaledToFit()
+            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+            .shadow(radius: 10)
 //            .frame(width: UIScreen.main.bounds.width, alignment: .center)
 //            .aspectRatio(2, contentMode: .fit)
     }
